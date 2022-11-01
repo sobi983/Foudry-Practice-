@@ -1,0 +1,16 @@
+install rust 
+install WSL
+
+->foundry -init --no-commit (get the library from the github)
+->foundryup (update the foundry libraries)
+->forge clean (deletes the abi and the build)
+->forge test (create the test cases)
+->forge build (compiles the contracts)
+
+->anvil (local blockchain setup that gives us the private accounts)
+->forge script script/Counter.s.sol:CounterScript --fork-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80  (it will not deploy to any network rather it will create a simulation, dummy)
+|
+->forge script script/Counter.s.sol:CounterScript --fork-url http://localhost:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --broadcast ( it will deploy to the foudry network to interact with it)
+
+->cast call 0xe7f1725e7734ce288f8367e1bb143e90bb3f0512 "count()(uint)"  ( call a function of the contract where contarct address a and function name and it's return type is given)
+->cast send 0xe7f1725e7734ce288f8367e1bb143e90bb3f0512 "increment()" --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80( contract address and private key to write a function)
